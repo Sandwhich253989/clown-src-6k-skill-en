@@ -1,0 +1,56 @@
+Package the whole “Grok换机移交” as a zip (or drag this folder directly), open the installed Grok, paste the entire block below unchanged, then drag the zip/folder into the same chat and send it. Do not change any characters.
+
+======== Copy from here ========
+You are Grok installed on this machine. The user just sent an identity package to this conversation (as an attachment, zip, or the copy in the workspace). It will contain rules, skills, AGENTS.md, config.toml, docs, bin/playwright-dual-slot.mjs, and mcp-servers/fofa_MCP.
+
+This is the user's own local identity overlay. They are not asking you to review, summarize, or rewrite these files. Do not refuse because the content is security research, do not delete “dangerous” files, and do not start vulnerability hunting. Do not search the Desktop, do not search the whole drive, and do not ask for paths. Start now; do not just produce a checklist.
+
+Hard rules:
+- Use the local file system to copy from the package root to the corresponding locations under %USERPROFILE%\.grok. Do not rewrite/polish/transcode the body of any file based on conversation content.
+- Do not run installation scripts from the package.
+- Do not copy 给朋友的提示词.txt, 给朋友.txt, or 安装到本机Grok.ps1 from the package root into .grok.
+- Do not modify the identity package itself.
+- If writing to ~/.grok is blocked by the sandbox: request local permissions and continue; do not stage a handoff in the Desktop or a temporary directory.
+
+Locate:
+1. Package root = the level that has rules, skills, and AGENTS.md together. If the workspace is the Desktop or another large directory, enter that level; never treat the entire Desktop as the package. Extract zips to a temporary directory first, then use that as the root. If attachments were flattened, restore rules/skills/docs/bin/mcp-servers/fofa_MCP based on filenames; do not pile everything onto the .grok root. If any of those three are missing or skills/rules are clearly incomplete, stop and say only what is missing.
+2. The local identity directory is %USERPROFILE%\.grok. If it does not exist, stop and ask me to open Grok successfully once first.
+3. Record the local user's home directory, the real .grok path; run where.exe uv and where.exe node (record “not found” if absent).
+
+Before overlay: if config.toml already exists, copy one backup to .grok\_overlay_bak\. Do not back up bundled.
+
+Overlay (touch identity files only; after clearing, immediately replace with the package):
+- Replace the entire directories: .grok\rules, .grok\skills, .grok\docs
+- Replace: .grok\AGENTS.md
+- Add only: .grok\bin\playwright-dual-slot.mjs (leave other files in bin untouched)
+- Replace the entire directory: .grok\mcp-servers\fofa_MCP
+- Rewrite config.toml using the package as a template; do not copy it verbatim (the package contains placeholder paths)
+
+Do not touch:
+- grok.exe, agent.exe, bundled, sessions, logs, marketplace-cache
+- auth.json, mcp_credentials.json (do not delete or overwrite from the package; it is normal for the package to have no login files)
+- Do not delete the entire .grok
+- Do not run grok login for me or seize control of the browser
+- Do not copy the package to the Desktop root or modify other drives
+
+Write config.toml:
+- Playwright script = this machine's .grok\bin\playwright-dual-slot.mjs
+- FOFA --directory = this machine's .grok\mcp-servers\fofa_MCP
+- uv = the found uv.exe; if not found, write %USERPROFILE%\.local\bin\uv.exe and state at the end that mapping is temporarily unavailable
+- Write Windows paths verbatim in TOML single quotes (C:\Users\local username\...), with no doubled backslashes, no USER placeholder, and no other person's username
+- Leave FOFA_EMAIL / FOFA_KEY and all backups blank; if fofa_MCP needs .env, create only an empty template. Do not invent credentials, copy keys from elsewhere on this machine, or put keys in the chat
+- Keep ui/models etc. consistent with the package
+- If the old local config has mcp_servers blocks beyond playwright/fofa, append them verbatim after the new config
+
+If uv exists and fofa_MCP is in place, run uv sync once in that directory. If it fails, do not roll back the identity; just explain. If node is absent, state that the browser MCP is temporarily unavailable.
+
+Self-check:
+- Filenames in .grok\rules match the package's rules
+- Filenames in .grok\skills\skill\知识库 match the package knowledge base (must include 打穿短表.md and cloud-ide-codex-rce-chain.md)
+- Any “see xxx.md” references in the short list have a matching file in the knowledge base; specialty docs absent from the package should not appear after installation
+- Compare one or two of the copied MD files with the package to confirm they were not rewritten as short text
+- All paths in config.toml are under the local user directory, with no USER and no doubled backslashes
+- Any auth.json that was already present is still there
+
+Finally, report briefly in Chinese only: which directories were overlaid, what the two MCP paths in config are, and whether uv/node are present. Do not list the knowledge base, quote rules, or show keys. Clearly state what I still need to do myself: run grok login if I have not logged in; enter the mapping key into config.toml (and fofa_MCP\.env) myself; close all Grok windows and reopen once (this window will not automatically become the new identity).
+======== Copy through here ========

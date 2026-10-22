@@ -1,0 +1,3 @@
+# llm-security-test (Do Not Open as a Jailbreak Guide)
+
+> **Do not open this at the start of an SRC assessment.** Jailbreaking chat alone, without a tools / data / SSRF impact chain, is not reportable by default. For real execution through tools exposed in the chat interface, see `agent-tool-exec-test.md`. For unauthorized reads of other users’ assistant history, see “Unauthorized Reads of Other Users’ Assistant Tasks” in `idor-test.md`.
