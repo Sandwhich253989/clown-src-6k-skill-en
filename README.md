@@ -23,3 +23,12 @@ Chinese explanatory prose has been translated into English. The original directo
 Configuration files are copied unchanged, as permitted by the translation scope. Existing English documentation is retained. Apparent irregularities in the original documents are preserved rather than silently corrected.
 
 The translated instructions describe the original author's intended workflows; translating them does not verify every technical claim or establish compatibility with a particular tool version. Consult the original `clown-src-6k-skill` material when resolving ambiguities in meaning.
+## Credits and provenance
+
+- **Clown and the original research contributors:** credit for the original SRC research workflows and collected knowledge belongs to their authors. The package is publicly circulated under the researcher handle **Clown**, as reflected in [community discussion](https://t.me/s/linux_do_channel/496534). This is community attribution; I could not independently verify a canonical author account or a complete contributor list.
+- **baianquanzu:** maintains a [public archive of the Chinese `clown-src-6k-skill` package](https://github.com/baianquanzu/6kskill/tree/main/clown-src-6k-skill). This archive is a provenance reference, not proof that its repository owner authored every document.
+- **Honghanb0 and contributors:** the [jiaoxunzhixing project](https://github.com/Honghanb0/jiaoxunzhixing) documents the `vuln-engine` rule-library extension included in this collection.
+- **James Kettle and PortSwigger Research:** the knowledge base references [Practical Web Cache Poisoning](https://portswigger.net/research/practical-web-cache-poisoning); credit for that research remains with its original author and publisher.
+- **Other cited researchers and tool authors:** existing source links and references inside the knowledge base are retained. Their research and tools remain their work.
+
+This repository contributes an English translation and an overview README. It does not claim authorship of the original research, endorsement by the researchers, or any additional license over the source material.
